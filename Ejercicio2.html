@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+
+    console.log("Currying")
+
+    const add = x => y => x + y;
+    console.log(add(10)(2));
+
+
+    console.log("Partial Application")
+
+    function add2(x, y, z){
+      return x + y + z;
+    }
+
+    function partialApplication(fn, ...args){
+      return function(...moreArgs){
+        return fn(...args, ...moreArgs);
+      };
+    }
+
+    const plus3 = partialApplication(add2, 6, 2);
+    console.log(plus3(7));
+
+</script>
+</body>
+</html>

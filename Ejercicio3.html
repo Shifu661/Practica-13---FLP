@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+
+    const pi = 3.1416
+
+    console.log("Versión normal");
+
+    function volumenCilindro(pi, h, r){
+        return pi * h * r * r;
+    }
+
+    console.log(volumenCilindro(pi, 3, 2));
+
+    console.log("Currying");
+
+    const volCilindroCurr = pi => h => r => pi * h * r * r;
+    console.log(volCilindroCurr(pi)(5)(3));
+
+</script>
+</body>
+</html>

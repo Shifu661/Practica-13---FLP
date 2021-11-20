@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+
+    var total = 0;
+    var delayInvoc = function(a){
+        total += a;
+        return function(a){
+            total += a;
+            return function(a){
+                total += a
+                return total;
+            }
+        }
+    }
+    delayInvoc(4)(5);
+    console.log(total); //9
+
+    delayInvoc(4)(5)(8);
+    console.log(total); //26
+
+</script>
+</body>
+</html>

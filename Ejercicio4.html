@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+
+    function joinWords(palabra) {
+        return function(sgtePalabra) {
+            if(sgtePalabra === undefined) {
+                return palabra;
+            }else{
+                return joinWords(palabra + " " + sgtePalabra);
+            }
+        }
+    }
+
+    result = joinWords('Hello')();
+    console.log(result); // Hello
+    result = joinWords('There')('is')('no')('spoon.')();
+    console.log(result); // There is no spoon .
+
+</script>
+</body>
+</html>

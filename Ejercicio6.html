@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+<script>
+
+    function abc(a, b, c){
+        return a + b + c;
+    }
+    function curry(f){
+        return function currify(){
+            const args = Array.prototype.slice.call(arguments);
+            return args.length >= f.length ? f.apply(null, args) :currify.bind(null, ...args);
+        }
+    }
+    var curriedAbc = curry(abc);
+    console.log(curriedAbc(2)(3)(4)); // 9
+    console.log(curriedAbc(2, 3)(4)); // 9
+    console.log(curriedAbc(2)(3, 4)); // 9
+    console.log(curriedAbc(2, 3, 4)); // 9
+
+</script>
+</body>
+</html>
